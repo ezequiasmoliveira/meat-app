@@ -1,6 +1,7 @@
+import { Component, OnInit } from '@angular/core';
+
 import { CartItem } from './cart-item.model';
 import { ShoppingCartService } from './shopping-cart.service';
-import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'mt-shopping-cart',

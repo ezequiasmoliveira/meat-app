@@ -10,7 +10,7 @@ export class RestaurantComponent implements OnInit {
 
   @Input() restaurant: Restaurant;
 
-  constructor() { };
+  constructor() {};
 
   ngOnInit() {
   }

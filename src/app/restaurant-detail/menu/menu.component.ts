@@ -21,7 +21,7 @@ export class MenuComponent implements OnInit {
   }
 
   addMenuItem(item: MenuItem) {
-  console.log(item);
+    console.log(item);
   }
 
 }

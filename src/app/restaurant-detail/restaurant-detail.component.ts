@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 
 import { RestaurantService } from './../restaurants/restaurants.service';
 import { Restaurant } from '../restaurants/restaurant/restaurant.model';
-import { ActivatedRoute } from '../../../node_modules/@angular/router';
 
 @Component({
   selector: 'mt-restaurant-detail',

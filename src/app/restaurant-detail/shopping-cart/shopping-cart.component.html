@@ -1,5 +1,4 @@
- <!--INICIO DO CARRINHO-->
- <div class="box box-solid">
+<div class="box box-solid">
   <div class="box-header">
     <i class="fa fa-shopping-cart"></i>
 
@@ -15,23 +14,23 @@
     </div>
 
     <div class="table-responsive" *ngIf="items().length">
-        <table class="table">
-          <tbody>
-            <tr *ngFor="let item of items()" >
-              <th>({{item.quantity}}x) {{item.menuItem.name}}</th>
+      <table class="table">
+        <tbody>
+          <tr *ngFor="let item of items()" >
+            <th>({{item.quantity}}x) {{item.menuItem.name}}</th>
 
-            <td class="text-right">{{item.value() | currency: 'BRL': true}}</td>
-            <td class="text-right">
-              <a (click)="removeItem(item)" class="btn btn-sm danger"><i class="fa fa-remove"></i></a>
-            </td>
-          </tr>
-          <tr>
-            <th>Total:</th>
+          <td class="text-right">{{item.value() | currency: 'BRL': true}}</td>
+          <td class="text-right">
+            <a (click)="removeItem(item)" class="btn btn-sm danger"><i class="fa fa-remove"></i></a>
+          </td>
+        </tr>
+        <tr>
+          <th>Total:</th>
 
-            <td class="text-right">{{total() | currency: 'BRL': true}}</td>
-          </tr>
-        </tbody></table>
-      </div>
+          <td class="text-right">{{total() | currency: 'BRL': true}}</td>
+        </tr>
+      </tbody></table>
+    </div>
   </div>
   <div class="box-footer" *ngIf="items().length">
     <div class="pull-right">
@@ -40,4 +39,3 @@
     </div>
   </div>
 </div>
-<!-- FIM DO CARRINHO -->

@@ -1,5 +1,6 @@
 import { MenuItem } from './../menu-item/menu-item.model';
 import { CartItem } from './cart-item.model';
+
 export class ShoppingCartService {
 
   items: CartItem[] = [];
@@ -27,4 +28,5 @@ export class ShoppingCartService {
       .map(item => item.value())
       .reduce((prev, value) => prev + value, 0);
   };
+
 }
