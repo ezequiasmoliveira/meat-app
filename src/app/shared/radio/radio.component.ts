@@ -14,7 +14,7 @@ import { RadioOption } from './radio-option.model';
     }
   ]
 })
-export class RadioComponent implements OnInit, ControlValueAccessor{
+export class RadioComponent implements OnInit, ControlValueAccessor {
 
   @Input() options: RadioOption[];
   value: any;
