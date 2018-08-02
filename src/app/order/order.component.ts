@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { FormGroup, FormBuilder, Validators, AbstractControl } from '@angular/forms';
 
 import { RadioOption } from './../shared/radio/radio-option.model';
 import { Order } from './order.model';
@@ -14,17 +15,42 @@ import { OrderService } from './order.service';
 })
 export class OrderComponent implements OnInit {
 
+  emailPattern = /^(([^<>()\[\]\.,;:\s@\"]+(\.[^<>()\[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i;
+  numberPattern = /^[0-9]*$/;
+  orderForm: FormGroup;
   delivery = 8;
   paymentOptions: RadioOption[] = [
     {label: 'Dinheiro', value: 'MON'},
     {label: 'Cartão Débito', value: 'DEB'},
     {label: 'Cartão Refeição', value: 'REF'}
   ];
+  static equalsTo(group: AbstractControl): {[key: string]: boolean} {
+    const email = group.get('email');
+    const emailConfirmation = group.get('emailConfirmation');
+
+    if (!email || !emailConfirmation) {
+      return undefined;
+    }
+    if (email.value !== emailConfirmation.value) {
+      return {emailsNotMatch: true};
+    }
+    return undefined;
+  }
 
   constructor(private _orderService: OrderService,
-              private _router: Router) { }
+              private _router: Router,
+              private _formBuilder: FormBuilder) { }
 
   ngOnInit() {
+    this.orderForm = this._formBuilder.group({
+      name: this._formBuilder.control('', [Validators.required, Validators.minLength(5)]),
+      email: this._formBuilder.control('', [Validators.required, Validators.pattern(this.emailPattern)]),
+      emailConfirmation: this._formBuilder.control('', [Validators.required, Validators.pattern(this.emailPattern)]),
+      address: this._formBuilder.control('', [Validators.required, Validators.minLength(5)]),
+      number: this._formBuilder.control('', [Validators.required, Validators.pattern(this.numberPattern)]),
+      optionalAddress: this._formBuilder.control(''),
+      paymentOption: this._formBuilder.control('', [Validators.required])
+    }, {validator: OrderComponent.equalsTo});
   }
 
   itemsValue(): number {
