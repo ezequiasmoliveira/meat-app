@@ -2,12 +2,13 @@ import { Injectable } from '@angular/core';
 import { Http, Headers, RequestOptions } from '@angular/http';
 import { Observable } from 'rxjs/Observable';
 
-import { MEAT_API } from './../app.api';
+import { MEAT_API } from '../../app.api';
 
-import { Order } from './order.model';
-import { CartItem } from './../restaurant-detail/shopping-cart/cart-item.model';
+import { Order } from '../model/order.model';
+import { CartItem } from '../model/cart-item.model';
 
-import { ShoppingCartService } from './../restaurant-detail/shopping-cart/shopping-cart.service';
+import { ShoppingCartService } from './shopping-cart.service';
+
 
 @Injectable()
 export class OrderService {

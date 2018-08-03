@@ -1,6 +1,7 @@
-import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { MenuItem } from './../../core/model/menu-item.model';
+import { OnInit, Input, EventEmitter, Output } from '@angular/core';
+import { Component } from '@angular/core';
 
-import { MenuItem } from './menu-item.model';
 
 @Component({
   selector: 'mt-menu-item',

@@ -1,4 +1,5 @@
-import { MenuItem } from './../menu-item/menu-item.model';
+import { MenuItem } from './menu-item.model';
+
 
 export class CartItem {
 
