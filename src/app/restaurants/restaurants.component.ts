@@ -19,12 +19,12 @@ import { RestaurantService } from './../core/service/restaurants.service';
     trigger('toggleSearch', [
       state('hidden', style({
         opacity: 0,
-        "maqx-height": "0px"
+        'maqx-height': '0px'
       })),
       state('visible', style({
         opacity: 1,
-        "max-height": "70px",
-        "margin-top": "20px"
+        'max-height': '70px',
+        'margin-top': '20px'
       })),
       transition('* => *', animate('250ms 0s ease-in-out'))
     ])
@@ -50,7 +50,7 @@ export class RestaurantsComponent implements OnInit {
     this.searchControl.valueChanges
         .debounceTime(500)
         .distinctUntilChanged()
-        .switchMap(searchTerm => 
+        .switchMap(searchTerm =>
           this._restaurantService.restaurants(searchTerm)
           .catch(error => Observable.from([])))
         .subscribe(rests => this.restaurants = rests);
