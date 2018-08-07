@@ -21,6 +21,7 @@ import { OrderSummaryComponent } from './order-summary/order-summary.component';
 import { NotFoundComponent } from './not-found/not-found.component';
 
 import { SharedModule } from './shared/shared.module';
+import { LoginComponent } from './security/login/login.component';
 
 
 
@@ -37,7 +38,8 @@ import { SharedModule } from './shared/shared.module';
     MenuItemComponent,
     ReviewsComponent,
     OrderSummaryComponent,
-    NotFoundComponent
+    NotFoundComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
