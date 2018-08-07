@@ -1,6 +1,7 @@
-import { LoginService } from './../core/service/login.service';
 import { CanLoad, Route, ActivatedRouteSnapshot, RouterStateSnapshot, CanActivate } from '@angular/router';
-import { Injectable } from '../../../node_modules/@angular/core';
+import { Injectable } from '@angular/core';
+
+import { LoginService } from './../core/service/login.service';
 
 @Injectable()
 export class LoggedInGuard implements CanLoad, CanActivate {
@@ -10,9 +11,9 @@ export class LoggedInGuard implements CanLoad, CanActivate {
   checkAuthentication(path: string): boolean {
     const loggeIn = this._loginService.isLoggedIn();
     if (!loggeIn) {
-      this._loginService.handlelogin(`/${path}`);
+      this._loginService.handleLogin(`/${path}`);
     }
-    return false;
+    return loggeIn;
   }
   canLoad(route: Route): boolean {
     return this.checkAuthentication(route.path);

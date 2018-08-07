@@ -25,7 +25,7 @@ export class LoginService {
                       .do(user => this.user = user);
   }
 
-  handlelogin(path?: string) {
+  handleLogin(path?: string) {
     this._router.navigate(['/login', btoa(path)])
   }
 
