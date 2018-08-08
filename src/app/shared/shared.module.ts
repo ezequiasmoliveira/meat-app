@@ -1,3 +1,4 @@
+import { LeaveOrderGuard } from './../order/leave-order.guard';
 import { NotificationService } from './messages/notification.service';
 import { NgModule, ModuleWithProviders } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
@@ -31,7 +32,8 @@ export class SharedModule {
                   OrderService,
                   NotificationService,
                   LoginService,
-                  LoggedInGuard]
+                  LoggedInGuard,
+                  LeaveOrderGuard]
     };
   }
 }

@@ -22,6 +22,7 @@ import { NotFoundComponent } from './not-found/not-found.component';
 
 import { SharedModule } from './shared/shared.module';
 import { LoginComponent } from './security/login/login.component';
+import { UserDatailComponent } from './header/user-datail/user-datail.component';
 
 
 
@@ -39,7 +40,8 @@ import { LoginComponent } from './security/login/login.component';
     ReviewsComponent,
     OrderSummaryComponent,
     NotFoundComponent,
-    LoginComponent
+    LoginComponent,
+    UserDatailComponent
   ],
   imports: [
     BrowserModule,
