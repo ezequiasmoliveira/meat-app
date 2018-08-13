@@ -6,8 +6,6 @@ import 'rxjs/add/operator/catch';
 
 import { MEAT_API } from './../../app.api';
 
-import { ErrorHandler } from './../../app.error-handler';
-
 import { MenuItem } from './../model/menu-item.model';
 import { Restaurant } from './../model/restaurant.model';
 

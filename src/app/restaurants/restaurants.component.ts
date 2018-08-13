@@ -1,7 +1,7 @@
-import { Observable } from 'rxjs/Observable';
-import { FormBuilder, FormGroup, FormControl } from '@angular/forms';
 import { OnInit } from '@angular/core';
 import { Component } from '@angular/core';
+import { Observable } from 'rxjs/Observable';
+import { FormBuilder, FormGroup, FormControl } from '@angular/forms';
 import { trigger, state, style, transition, animate } from '@angular/animations';
 import 'rxjs/add/Observable/from';
 import 'rxjs/add/operator/switchMap';

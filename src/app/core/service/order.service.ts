@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpHeaders} from '@angular/common/http';
+import { HttpClient} from '@angular/common/http';
 import { Observable } from 'rxjs/Observable';
 
 import { MEAT_API } from '../../app.api';
@@ -8,7 +8,6 @@ import { Order } from '../model/order.model';
 import { CartItem } from '../model/cart-item.model';
 
 import { ShoppingCartService } from './shopping-cart.service';
-import { LoginService } from './login.service';
 
 
 @Injectable()
