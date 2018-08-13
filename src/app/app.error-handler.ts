@@ -12,6 +12,7 @@ export class AplicationErrorHandler extends ErrorHandler {
               private _zone: NgZone) {
     super();
   }
+
   handlerError(errorResponse: HttpErrorResponse | any) {
     if (errorResponse instanceof HttpErrorResponse) {
       const message = errorResponse.error.message;
