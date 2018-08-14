@@ -1,5 +1,5 @@
 import { LoginService } from './../core/service/login.service';
-import { Observable } from 'rxjs/Observable';
+import { Observable } from 'rxjs';
 import { HttpInterceptor, HttpEvent, HttpRequest, HttpHandler } from '@angular/common/http';
 import { Injectable, Injector } from '@angular/core';
 

@@ -1,9 +1,9 @@
 import { Router } from '@angular/router';
-import { FormGroup, AbstractControl, FormBuilder, Validators } from '@angular/forms';
+import { FormGroup, AbstractControl, FormBuilder, Validators, FormControl } from '@angular/forms';
 import { OnInit } from '@angular/core';
 import { Component } from '@angular/core';
 
-import 'rxjs/add/operator/do';
+import { tap} from 'rxjs/operators';
 
 import { RadioOption } from '../shared/radio/radio-option.model';
 import { Order } from '../core/model/order.model';
@@ -46,15 +46,17 @@ export class OrderComponent implements OnInit {
               private _formBuilder: FormBuilder) { }
 
   ngOnInit() {
-    this.orderForm = this._formBuilder.group({
-      name: this._formBuilder.control('', [Validators.required, Validators.minLength(5)]),
+    this.orderForm = new FormGroup( {
+      name: new FormControl('', {
+        validators: [Validators.required, Validators.minLength(5)]
+      }),
       email: this._formBuilder.control('', [Validators.required, Validators.pattern(this.emailPattern)]),
       emailConfirmation: this._formBuilder.control('', [Validators.required, Validators.pattern(this.emailPattern)]),
       address: this._formBuilder.control('', [Validators.required, Validators.minLength(5)]),
       number: this._formBuilder.control('', [Validators.required, Validators.pattern(this.numberPattern)]),
       optionalAddress: this._formBuilder.control(''),
       paymentOption: this._formBuilder.control('', [Validators.required])
-    }, {validator: OrderComponent.equalsTo});
+    }, {validators: [OrderComponent.equalsTo], updateOn: 'blur' });
   }
 
   itemsValue(): number {
@@ -81,13 +83,14 @@ export class OrderComponent implements OnInit {
       .map((item: CartItem) => new OrderItem(item.quantity, item.menuItem.id));
 
     this._orderService.checkOrder(order)
-      .do((orderId: string) => {
-        this.orderId = orderId;
-      })
-      .subscribe( (orderId: string) => {
-        this._router.navigate(['/order-summary']);
-        this._orderService.clear();
-      } );
+      .pipe(
+        tap((orderId: string) => {
+          this.orderId = orderId;
+        })
+       ).subscribe( (orderId: string) => {
+          this._router.navigate(['/order-summary']);
+          this._orderService.clear();
+      });
   }
 
   isOrderCompleted(): boolean {

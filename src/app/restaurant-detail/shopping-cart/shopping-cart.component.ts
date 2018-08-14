@@ -10,6 +10,7 @@ import { ShoppingCartService } from './../../core/service/shopping-cart.service'
 @Component({
   selector: 'mt-shopping-cart',
   templateUrl: './shopping-cart.component.html',
+  preserveWhitespaces: true,
   animations: [
     trigger('row', [
       state('ready', style({opacity: 1})),
