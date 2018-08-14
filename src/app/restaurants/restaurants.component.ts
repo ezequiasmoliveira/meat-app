@@ -19,7 +19,7 @@ import { RestaurantService } from './../core/service/restaurants.service';
     trigger('toggleSearch', [
       state('hidden', style({
         opacity: 0,
-        'maqx-height': '0px'
+        'max-height': '0px'
       })),
       state('visible', style({
         opacity: 1,
